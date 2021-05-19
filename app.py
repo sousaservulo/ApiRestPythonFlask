@@ -6,23 +6,23 @@ app = Flask(__name__)
 clientes =[
     {'id':0,
     'nome':'Carlos',
-     'endereco completo':{'rua':'r. goncalves noites', 'numero':'1234', 'cep':'59123-123'},
+    'endereco completo':'r. goncalves francisco, 42',
+    'contato':'84987545155',
     'pedido':'cachorro quente',
-    'contato':{'telefone':'84987545155', 'email':'carlos@jaironet.com'}
      },
 
     {'id':1,
     'nome':'Bianco',
-     'endereco completo':{'rua':'r. goncalves tardes', 'numero':'1324', 'cep':'58123-123'},
-    'pedido':'churrasquinho',
-    'contato':{'telefone':'84987545155', 'email':'bianco@jaironet.com'}
+     'endereco completo': 'r. goncalves francisco, 72',
+     'contato': '84987545155',
+     'pedido': 'salada',
      },
 
     {'id':2,
     'nome':'Jairo',
-     'endereco completo':{'rua':'r. goncalves manhas', 'numero':'4321', 'cep':'57123-123'},
+     'endereco completo':'r. goncalves francisco, 52',
+    'contato':'84987545155',
     'pedido':'pizza',
-     'contato':{'telefone':'84987545155', 'email':'jairo@jaironet.com'}
      },
 
 ]
@@ -50,7 +50,7 @@ def cliente(id):
 
 #permite adicionar e exibir todas os clientes.
 @app.route('/clientes/', methods =['POST', 'GET'])
-def lista_clientes():
+def listar():
     if request.method == 'POST':
         dados = json.loads(request.data)
         posicao = len(clientes)
@@ -62,4 +62,4 @@ def lista_clientes():
 
 
 if __name__ == '__main__':
-    app.run()
+    app.run(debug=False)
